@@ -52,6 +52,10 @@
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
+								"pipeline": {
+									"referenceName": "pip_src_raw",
+									"type": "PipelineReference"
+								},
 								"waitOnCompletion": false
 							}
 						}

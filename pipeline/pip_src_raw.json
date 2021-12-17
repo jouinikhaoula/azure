@@ -129,6 +129,15 @@
 				]
 			}
 		],
+		"parameters": {
+			"feedid": {
+				"type": "string",
+				"defaultValue": "1"
+			},
+			"year": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"feedid": {
 				"type": "String",
