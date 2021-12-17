@@ -1,0 +1,9 @@
+{
+	"name": "adf-trainingkh",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "da48f1b2-e648-4099-9494-1a03a98a9d19",
+		"tenantId": "8e3db7b6-b79e-4718-8a58-b3f0c3073886"
+	}
+}
