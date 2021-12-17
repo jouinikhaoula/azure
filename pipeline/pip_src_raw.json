@@ -22,14 +22,14 @@
 							"FeedId": {
 								"type": "Int16",
 								"value": {
-									"value": "@variables('feedid')",
+									"value": "@pipeline().parameters.feedid",
 									"type": "Expression"
 								}
 							},
 							"Year": {
 								"type": "String",
 								"value": {
-									"value": "@variables('year')",
+									"value": "@pipeline().parameters.year",
 									"type": "Expression"
 								}
 							}
@@ -135,7 +135,8 @@
 				"defaultValue": "1"
 			},
 			"year": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "_April_2019"
 			}
 		},
 		"variables": {
