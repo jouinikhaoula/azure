@@ -1,0 +1,39 @@
+{
+	"name": "salesfiletgt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tgtFilePath": {
+				"type": "string"
+			},
+			"tgtFileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().tgtFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().tgtFilePath",
+					"type": "Expression"
+				},
+				"container": "lab"
+			},
+			"columnDelimiter": ",",
+			"compressionCodec": "gzip",
+			"compressionLevel": "Optimal",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

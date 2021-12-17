@@ -1,0 +1,144 @@
+{
+	"name": "pip_src_raw",
+	"properties": {
+		"activities": [
+			{
+				"name": "getParameterValues",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderStoredProcedureName": "[dbo].[PS_FEED_PARAMETER]",
+						"storedProcedureParameters": {
+							"FeedId": {
+								"type": "Int16",
+								"value": {
+									"value": "@variables('feedid')",
+									"type": "Expression"
+								}
+							},
+							"Year": {
+								"type": "String",
+								"value": {
+									"value": "@variables('year')",
+									"type": "Expression"
+								}
+							}
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "getParameterValues",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "salesfilesrc",
+						"type": "DatasetReference",
+						"parameters": {
+							"srcFilePath": {
+								"value": "@activity('getParameterValues').output.firstrow.sourcepath",
+								"type": "Expression"
+							},
+							"srcFileName": {
+								"value": "@activity('getParameterValues').output.firstrow.sourcefilename",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "salesfiletgt",
+						"type": "DatasetReference",
+						"parameters": {
+							"tgtFilePath": {
+								"value": "@activity('getParameterValues').output.firstrow.targetfilepath",
+								"type": "Expression"
+							},
+							"tgtFileName": {
+								"value": "@activity('getParameterValues').output.firstrow.targetfilename",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"variables": {
+			"feedid": {
+				"type": "String",
+				"defaultValue": "1"
+			},
+			"year": {
+				"type": "String",
+				"defaultValue": "_April_2019"
+			}
+		},
+		"annotations": []
+	}
+}
