@@ -1,0 +1,64 @@
+{
+	"name": "pip_loop",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup values",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "select '_January_2019.csv' as YearRun\nUNION \nselect '_February_2019.csv'\nUNION \nselect '_Mars_2019.csv'\nUNION \nselect '_April_2019.csv'\nUNION \nselect '_May_2019.csv'\nUNION \nselect '_June_2019.csv'\nUNION \nselect '_July_2019.csv'",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Call Data For each year",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup values",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup values').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "pip call child",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitOnCompletion": false
+							}
+						}
+					]
+				}
+			}
+		],
+		"annotations": []
+	}
+}
