@@ -56,7 +56,14 @@
 									"referenceName": "pip_src_raw",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": false
+								"waitOnCompletion": false,
+								"parameters": {
+									"feedid": "1",
+									"year": {
+										"value": "@item().YearRun",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]

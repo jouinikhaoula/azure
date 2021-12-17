@@ -139,16 +139,6 @@
 				"defaultValue": "_April_2019"
 			}
 		},
-		"variables": {
-			"feedid": {
-				"type": "String",
-				"defaultValue": "1"
-			},
-			"year": {
-				"type": "String",
-				"defaultValue": "_April_2019"
-			}
-		},
 		"annotations": []
 	}
 }
