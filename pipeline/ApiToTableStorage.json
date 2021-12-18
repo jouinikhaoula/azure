@@ -36,42 +36,45 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['data'][0]['id']"
+									"path": "$['data']['id']"
 								},
 								"sink": {
-									"name": "ID"
+									"name": "Id"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['employee_name']"
+									"path": "$['data']['employee_name']"
 								},
 								"sink": {
-									"name": "Name"
+									"name": "Name",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['employee_salary']"
+									"path": "$['data']['employee_salary']"
 								},
 								"sink": {
-									"name": "Salary"
+									"name": "Salary",
+									"type": "Int64"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['employee_age']"
+									"path": "$['data']['employee_age']"
 								},
 								"sink": {
-									"name": "Age"
+									"name": "Age",
+									"type": "Int64"
 								}
 							},
 							{
 								"source": {
-									"path": "$['data'][0]['profile_image']"
+									"path": "$['data']['profile_image']"
 								},
 								"sink": {
-									"name": "Image"
+									"name": "Imagee"
 								}
 							}
 						],
