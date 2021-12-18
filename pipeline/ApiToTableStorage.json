@@ -27,7 +27,7 @@
 					"sink": {
 						"type": "AzureTableSink",
 						"azureTableInsertType": "replace",
-						"azureTablePartitionKeyName": "ID",
+						"azureTableRowKeyName": "ID",
 						"writeBatchSize": 10000
 					},
 					"enableStaging": false,
