@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "select '_January_2019.csv' as YearRun\nUNION \nselect '_February_2019.csv'\nUNION \nselect '_Mars_2019.csv'\nUNION \nselect '_April_2019.csv'\nUNION \nselect '_May_2019.csv'\nUNION \nselect '_June_2019.csv'\nUNION \nselect '_July_2019.csv'",
+						"sqlReaderQuery": "select '_January_2019' as YearRun\nUNION \nselect '_February_2019'\nUNION \nselect '_March_2019'\nUNION \nselect '_April_2019'\nUNION \nselect '_May_2019'\nUNION \nselect '_June_2019'\nUNION \nselect '_July_2019'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
