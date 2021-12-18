@@ -1,0 +1,12 @@
+{
+	"name": "API",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "EmployeesApi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
