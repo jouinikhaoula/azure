@@ -27,7 +27,7 @@
 					"sink": {
 						"type": "AzureTableSink",
 						"azureTableInsertType": "replace",
-						"azureTableRowKeyName": "ID",
+						"azureTableRowKeyName": "id",
 						"writeBatchSize": 10000
 					},
 					"enableStaging": false,
@@ -39,7 +39,7 @@
 									"path": "$['data']['id']"
 								},
 								"sink": {
-									"name": "Id"
+									"name": "id"
 								}
 							},
 							{
@@ -47,8 +47,7 @@
 									"path": "$['data']['employee_name']"
 								},
 								"sink": {
-									"name": "Name",
-									"type": "String"
+									"name": "name"
 								}
 							},
 							{
@@ -56,8 +55,7 @@
 									"path": "$['data']['employee_salary']"
 								},
 								"sink": {
-									"name": "Salary",
-									"type": "Int64"
+									"name": "salary "
 								}
 							},
 							{
@@ -65,8 +63,7 @@
 									"path": "$['data']['employee_age']"
 								},
 								"sink": {
-									"name": "Age",
-									"type": "Int64"
+									"name": "age"
 								}
 							},
 							{
@@ -74,7 +71,7 @@
 									"path": "$['data']['profile_image']"
 								},
 								"sink": {
-									"name": "Imagee"
+									"name": "image"
 								}
 							}
 						],
