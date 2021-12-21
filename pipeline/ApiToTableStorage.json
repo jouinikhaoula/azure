@@ -60,7 +60,7 @@
 							},
 							{
 								"source": {
-									"path": "'employee_age'"
+									"path": "employee_age"
 								},
 								"sink": {
 									"name": "age"
