@@ -27,6 +27,10 @@
 					"sink": {
 						"type": "AzureTableSink",
 						"azureTableInsertType": "replace",
+						"azureTableRowKeyName": {
+							"value": "id",
+							"type": "Expression"
+						},
 						"writeBatchSize": 10000
 					},
 					"enableStaging": false,
