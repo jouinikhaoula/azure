@@ -36,7 +36,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "id"
+									"path": "['$[\\'data\\'][id]']"
 								},
 								"sink": {
 									"name": "id"
@@ -44,7 +44,7 @@
 							},
 							{
 								"source": {
-									"path": "employee_name"
+									"path": "['$[\\'data\\'][employee_name]']"
 								},
 								"sink": {
 									"name": "name"
@@ -52,7 +52,7 @@
 							},
 							{
 								"source": {
-									"path": "employee_salary"
+									"path": "['$[\\'data\\'][employee_salary]']"
 								},
 								"sink": {
 									"name": "salary "
@@ -60,7 +60,7 @@
 							},
 							{
 								"source": {
-									"path": "employee_age"
+									"path": "['$[\\'data\\'][employee_age]']"
 								},
 								"sink": {
 									"name": "age"
@@ -68,7 +68,7 @@
 							},
 							{
 								"source": {
-									"path": "profile_image"
+									"path": "['$[\\'data\\'][profile_image]']"
 								},
 								"sink": {
 									"name": "image"
